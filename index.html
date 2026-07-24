@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Bagria | Cyber Defence Specialist & Security Leader</title>
+    <title>Mohit Bagria | Lead Cybersecurity Engineer & AI Defence Leader</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -39,16 +39,16 @@
             padding: 2.5rem 1.5rem;
         }
 
-        /* Hero Header */
+        /* Header / Hero */
         header {
             text-align: center;
-            padding: 3rem 1.5rem 2.5rem;
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0) 100%);
+            padding: 3.5rem 1.5rem 2.5rem;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0) 100%);
             border-bottom: 1px solid var(--border-color);
         }
 
         .profile-title {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: 700;
             letter-spacing: -0.025em;
             color: var(--text-main);
@@ -56,7 +56,7 @@
         }
 
         .profile-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--primary-accent);
             margin-bottom: 0.5rem;
@@ -72,12 +72,13 @@
             justify-content: center;
             gap: 1rem;
             margin-top: 1.75rem;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.6rem 1.25rem;
+            padding: 0.65rem 1.35rem;
             border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -105,15 +106,14 @@
             background-color: #334155;
         }
 
-        /* Content Sections */
+        /* Sections */
         .section-title {
             font-size: 1.35rem;
             font-weight: 600;
             color: var(--text-main);
             margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
         .card {
@@ -154,11 +154,11 @@
             background-color: rgba(245, 158, 11, 0.1);
         }
 
-        /* Experience List */
+        /* Experience Timeline */
         .experience-list {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1.75rem;
         }
 
         .exp-item {
@@ -166,16 +166,39 @@
             padding-left: 1.25rem;
         }
 
-        .exp-title {
-            font-size: 1.1rem;
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-role {
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--text-main);
         }
 
-        .exp-desc {
+        .exp-company {
+            color: var(--primary-accent);
+            font-weight: 500;
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
             color: var(--text-muted);
+        }
+
+        .exp-bullets {
+            margin-top: 0.75rem;
+            padding-left: 1.2rem;
+            color: #cbd5e1;
             font-size: 0.95rem;
-            margin-top: 0.3rem;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 0.5rem;
         }
 
         footer {
@@ -192,59 +215,99 @@
     <header>
         <div class="container" style="padding-top: 0; padding-bottom: 0;">
             <h1 class="profile-title">Mohit Bagria</h1>
-            <p class="profile-subtitle">Cyber Defence Specialist & Security Leader</p>
-            <p class="profile-location">Building Cyber Defence @ PropertyGuru Group | Greater Bengaluru Area</p>
+            <p class="profile-subtitle">Lead Cybersecurity Engineer | Threat Detection & AI Security</p>
+            <p class="profile-location">Bengaluru, India | Building Cyber Defence @ PropertyGuru Group</p>
             
             <div class="cta-buttons">
-                <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
-                <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+                <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
+                <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Portfolio</a>
+                <a href="Mohit Bagria Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume (PDF)</a>
             </div>
         </div>
     </header>
 
     <main class="container">
         
+        <!-- Summary -->
         <section class="card">
-            <h2 class="section-title">Executive Summary</h2>
+            <h2 class="section-title">Professional Summary</h2>
             <p class="about-text">
-                Accomplished Cybersecurity Professional specializing in enterprise cyber defense, security automation, and threat mitigation. Currently driving security strategy and operations at PropertyGuru Group, leveraging Artificial Intelligence and automation to build resilient, multi-layered security architectures.
+                Lead Cybersecurity Engineer with 6+ years of expertise in enterprise Threat Detection & Response (TDR), Cloud Security, SIEM/SOAR Architecture, and AI Security. Proven track record of reducing Incident Response MTTR by 60%, engineering automated security pipelines, and leading incident handling for high-scale environments.
             </p>
         </section>
 
+        <!-- Technical Skills -->
         <section class="card">
-            <h2 class="section-title">Core Competencies & Focus Areas</h2>
+            <h2 class="section-title">Core Competencies & Tools</h2>
             <div class="badge-grid">
-                <span class="badge">Cyber Defence Strategy</span>
-                <span class="badge">Defence in Depth</span>
-                <span class="badge">Security with AI & Automation</span>
-                <span class="badge">Incident Response & SIEM</span>
                 <span class="badge">Threat Detection Engineering</span>
-                <span class="badge">Public Speaking & Keynotes</span>
-                <span class="badge gold">🏆 Academic Gold Medalist (2016-19)</span>
+                <span class="badge">SIEM & SOAR (Splunk / Elastic)</span>
+                <span class="badge">Cloud Security (AWS / GCP / Azure)</span>
+                <span class="badge">Incident Response (DFIR)</span>
+                <span class="badge">AI & LLM Security</span>
+                <span class="badge">Python & Automation</span>
+                <span class="badge">SentinelOne & EDR</span>
+                <span class="badge">Palo Alto Networks</span>
+                <span class="badge">CI/CD & DevSecOps</span>
+                <span class="badge gold">🏆 Academic Gold Medalist (2016–19)</span>
             </div>
         </section>
 
+        <!-- Experience -->
         <section class="card">
-            <h2 class="section-title">Professional Experience & Key Achievements</h2>
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-list">
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Lead Cybersecurity Engineer</span>
+                        <span class="exp-date">PropertyGuru Group (2022 – Present)</span>
+                    </div>
+                    <div class="exp-company">Bengaluru, India</div>
+                    <ul class="exp-bullets">
+                        <li>Architected enterprise-wide SIEM/SOAR detection pipelines across multi-cloud environments, resulting in a <strong>60% reduction in MTTR</strong>.</li>
+                        <li>Designed automated incident triage Playbooks using AI models, cutting false positives significantly.</li>
+                        <li>Led proactive threat hunting, incident response, and forensic investigations across APJ infrastructure.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Senior Associate - Cybersecurity</span>
+                        <span class="exp-date">Publicis Sapient (2021 – 2022)</span>
+                    </div>
+                    <div class="exp-company">Bengaluru, India</div>
+                    <ul class="exp-bullets">
+                        <li>Managed Security Operations Center (SOC) monitoring and threat detection for global enterprise clients.</li>
+                        <li>Configured and fine-tuned SIEM correlation rules, vulnerability assessments, and cloud compliance standards.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-role">Security Analyst</span>
+                        <span class="exp-date">Incture Technologies (2019 – 2021)</span>
+                    </div>
+                    <div class="exp-company">Bengaluru, India</div>
+                    <ul class="exp-bullets">
+                        <li>Performed web application security testing, vulnerability patching verification, and perimeter security auditing.</li>
+                        <li>Automated daily security audit reports using Python and Bash scripts.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Honors -->
+        <section class="card">
+            <h2 class="section-title">Education & Academic Honors</h2>
             <div class="experience-list">
                 <div class="exp-item">
-                    <div class="exp-title">Building Cyber Defence @ PropertyGuru Group</div>
-                    <div class="exp-desc">Architecting robust defensive controls, threat detection pipelines, and automated incident handling strategies for enterprise infrastructure across APJ.</div>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-title">Security & AI Automation</div>
-                    <div class="exp-desc">Designing intelligent triage tools and threat correlation pipelines to optimize SecOps efficiency and minimize response times.</div>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-title">Industry Speaker & Thought Leadership</div>
-                    <div class="exp-desc">Delivering keynotes and panel presentations on modern cyber defense, AI integration in security, and proactive risk management.</div>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-title">Academic Excellence</div>
-                    <div class="exp-desc">Awarded Gold Medal (2016–2019) for top academic performance in computer science and technology operations.</div>
+                    <div class="exp-header">
+                        <span class="exp-role">Bachelor of Technology (B.Tech) - Computer Science</span>
+                        <span class="exp-date">2016 – 2019</span>
+                    </div>
+                    <div class="exp-company">Academic Gold Medalist (First Rank across all departments)</div>
                 </div>
             </div>
         </section>
