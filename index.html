@@ -4,186 +4,256 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohit Bagria | Cyber Defence Specialist & Security Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --primary-green: #00ff66;
-            --text-color: #c9d1d9;
-            --muted-text: #8b949e;
-            --accent-blue: #58a6ff;
-            --highlight-gold: #f1e05a;
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --border-color: #334155;
+            --primary-accent: #38bdf8;
+            --primary-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold-accent: #f59e0b;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
+            padding: 2.5rem 1.5rem;
         }
 
+        /* Hero Header */
         header {
             text-align: center;
-            padding-bottom: 2rem;
+            padding: 3rem 1.5rem 2.5rem;
+            background: linear-gradient(180deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0) 100%);
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
         }
 
-        header h1 {
-            color: var(--primary-green);
-            font-size: 2.2rem;
+        .profile-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--text-main);
             margin-bottom: 0.5rem;
         }
 
-        header p {
-            color: var(--accent-blue);
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+        .profile-subtitle {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--primary-accent);
+            margin-bottom: 0.5rem;
         }
 
-        header .sub-location {
-            color: var(--muted-text);
+        .profile-location {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
             font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-accent);
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: var(--surface-color);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* Content Sections */
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .card {
-            background-color: var(--card-bg);
+            background-color: var(--surface-color);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
-        .card h2 {
-            color: var(--primary-green);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 0.5rem;
+        .about-text {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        ul li::before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
-            color: var(--primary-green);
-        }
-
-        .badge-container {
+        /* Badges */
+        .badge-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
+            gap: 0.6rem;
         }
 
         .badge {
-            background: #21262d;
+            background-color: #0f172a;
             border: 1px solid var(--border-color);
-            color: var(--accent-blue);
-            padding: 0.25rem 0.65rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
+            color: var(--primary-accent);
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .badge.gold {
-            border-color: var(--highlight-gold);
-            color: var(--highlight-gold);
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+
+        /* Experience List */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .exp-item {
+            border-left: 3px solid var(--primary-accent);
+            padding-left: 1.25rem;
+        }
+
+        .exp-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .exp-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
         }
 
         footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            padding: 2.5rem 1rem;
             border-top: 1px solid var(--border-color);
-            color: var(--muted-text);
-            font-size: 0.85rem;
-        }
-
-        a {
-            color: var(--primary-green);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>root@mohitbagria:~#</h1>
-            <p>Building Cyber Defence @ PropertyGuru Group</p>
-            <p class="sub-location">Defence In Depth | Security with AI & Automation | Public Speaker</p>
-        </header>
+    <header>
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <h1 class="profile-title">Mohit Bagria</h1>
+            <p class="profile-subtitle">Cyber Defence Specialist & Security Leader</p>
+            <p class="profile-location">Building Cyber Defence @ PropertyGuru Group | Greater Bengaluru Area</p>
+            
+            <div class="cta-buttons">
+                <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+                <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Profile</a>
+            </div>
+        </div>
+    </header>
 
+    <main class="container">
+        
         <section class="card">
-            <h2>> whoami</h2>
-            <p>Cybersecurity professional specializing in modern enterprise cyber defense, security automation, and threat mitigation. Currently driving cyber defense operations at PropertyGuru Group, leveraging AI and automation to build resilient, multi-layered security architectures.</p>
+            <h2 class="section-title">Executive Summary</h2>
+            <p class="about-text">
+                Accomplished Cybersecurity Professional specializing in enterprise cyber defense, security automation, and threat mitigation. Currently driving security strategy and operations at PropertyGuru Group, leveraging Artificial Intelligence and automation to build resilient, multi-layered security architectures.
+            </p>
         </section>
 
         <section class="card">
-            <h2>> cat focus_areas.txt</h2>
-            <div class="badge-container">
-                <span class="badge">Cyber Defence</span>
+            <h2 class="section-title">Core Competencies & Focus Areas</h2>
+            <div class="badge-grid">
+                <span class="badge">Cyber Defence Strategy</span>
                 <span class="badge">Defence in Depth</span>
                 <span class="badge">Security with AI & Automation</span>
                 <span class="badge">Incident Response & SIEM</span>
                 <span class="badge">Threat Detection Engineering</span>
-                <span class="badge">Public Speaking</span>
+                <span class="badge">Public Speaking & Keynotes</span>
                 <span class="badge gold">🏆 Academic Gold Medalist (2016-19)</span>
             </div>
         </section>
 
         <section class="card">
-            <h2>> ls -la ./experience_&_achievements</h2>
-            <ul>
-                <li><strong>Building Cyber Defence @ PropertyGuru Group:</strong> Designing and implementing security controls, threat detection pipelines, and incident handling strategies.</li>
-                <li><strong>Security & AI Automation:</strong> Integrating automated triage, intelligent threat correlation, and machine learning tools into security workflows.</li>
-                <li><strong>Public Speaker:</strong> Sharing insights on cybersecurity best practices, AI integration, and enterprise defense strategies at security forums and industry events.</li>
-                <li><strong>Academic Distinction:</strong> Gold Medalist (2016–2019) in computer science / technical domain.</li>
-            </ul>
+            <h2 class="section-title">Professional Experience & Key Achievements</h2>
+            <div class="experience-list">
+                <div class="exp-item">
+                    <div class="exp-title">Building Cyber Defence @ PropertyGuru Group</div>
+                    <div class="exp-desc">Architecting robust defensive controls, threat detection pipelines, and automated incident handling strategies for enterprise infrastructure across APJ.</div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">Security & AI Automation</div>
+                    <div class="exp-desc">Designing intelligent triage tools and threat correlation pipelines to optimize SecOps efficiency and minimize response times.</div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">Industry Speaker & Thought Leadership</div>
+                    <div class="exp-desc">Delivering keynotes and panel presentations on modern cyber defense, AI integration in security, and proactive risk management.</div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">Academic Excellence</div>
+                    <div class="exp-desc">Awarded Gold Medal (2016–2019) for top academic performance in computer science and technology operations.</div>
+                </div>
+            </div>
         </section>
 
-        <section class="card">
-            <h2>> ./connect.sh</h2>
-            <p>Let's connect to discuss security strategy, AI in SecOps, or speaking opportunities:</p>
-            <p style="margin-top: 0.5rem;">
-                🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank">linkedin.com/in/mohit-bagria-bbba19125</a><br>
-                💻 <strong>GitHub:</strong> <a href="https://github.com/MohitBagaria" target="_blank">github.com/MohitBagaria</a>
-            </p>
-        </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2026 Mohit Bagria | Hosted on GitHub Pages</p>
-        </footer>
-    </div>
+    <footer>
+        <p>&copy; 2026 Mohit Bagria. All rights reserved. | Hosted on GitHub Pages</p>
+    </footer>
 
 </body>
 </html>
