@@ -3,86 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samurai Mohit | Cybersecurity & InfoSec Portfolio</title>
+    <title>Mohit Bagaria | Cybersecurity Expert & InfoSec Portfolio</title>
     <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --primary-green: #00ff66;
+            --text-color: #c9d1d9;
+            --muted-text: #8b949e;
+            --accent-blue: #58a6ff;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
         }
 
         body {
-            background-color: #0d1117;
-            color: #58a6ff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         header {
-            padding: 2rem;
             text-align: center;
-            border-bottom: 1px solid #30363d;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
         }
 
         header h1 {
-            color: #00ff66;
-            font-size: 2.5rem;
+            color: var(--primary-green);
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
         }
 
         header p {
-            color: #8b949e;
+            color: var(--accent-blue);
             font-size: 1.1rem;
         }
 
-        main {
-            flex: 1;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .terminal-card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
-        .terminal-card h2 {
-            color: #00ff66;
+        .card h2 {
+            color: var(--primary-green);
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .terminal-card p, .terminal-card ul {
-            color: #c9d1d9;
-            line-height: 1.6;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
         ul {
-            list-style-type: '⚡ ';
-            padding-left: 1.2rem;
+            list-style: none;
+            padding-left: 0;
         }
 
-        li {
-            margin-bottom: 0.5rem;
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        ul li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .badge {
+            background: #21262d;
+            border: 1px solid var(--border-color);
+            color: var(--accent-blue);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
         }
 
         footer {
             text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid #30363d;
-            color: #8b949e;
-            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-text);
+            font-size: 0.85rem;
         }
 
         a {
-            color: #00ff66;
+            color: var(--primary-green);
             text-decoration: none;
         }
 
@@ -93,40 +124,60 @@
 </head>
 <body>
 
-    <header>
-        <h1>root@samurai_mohit:~#</h1>
-        <p>Offensive Security | Penetration Testing | Incident Response</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>root@mohitbagaria:~#</h1>
+            <p>Cybersecurity Specialist | Penetration Tester | Threat Hunter</p>
+        </header>
 
-    <main>
-        <section class="terminal-card">
+        <section class="card">
             <h2>> whoami</h2>
-            <p>Welcome to my cybersecurity hub. I specialize in ethical hacking, vulnerability assessment, network security, and defensive operations.</p>
+            <p>Passionate Cybersecurity Professional dedicated to identifying vulnerabilities, securing infrastructure, and mitigating threat vectors before they can be exploited. Experienced in offensive security assessment, defensive monitoring, and incident mitigation.</p>
         </section>
 
-        <section class="terminal-card">
-            <h2>> cat skills.txt</h2>
+        <section class="card">
+            <h2>> cat core_skills.txt</h2>
+            <div class="badge-container">
+                <span class="badge">Penetration Testing</span>
+                <span class="badge">Vulnerability Assessment</span>
+                <span class="badge">OWASP Top 10</span>
+                <span class="badge">SIEM & Threat Hunting</span>
+                <span class="badge">Network Security</span>
+                <span class="badge">Incident Response</span>
+                <span class="badge">Python & Bash Automation</span>
+                <span class="badge">Linux Administration</span>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>> ls -la ./featured_projects</h2>
             <ul>
-                <li>Network Penetration Testing & Vulnerability Assessment</li>
-                <li>Web Application Security (OWASP Top 10)</li>
-                <li>Security Information & Event Management (SIEM)</li>
-                <li>Python & Bash Scripting for Automation</li>
+                <li><strong>Automated Vulnerability Scanner:</strong> Python script leveraging Nmap and custom threat feeds to pinpoint unpatched services.</li>
+                <li><strong>Web Application Security Audit:</strong> In-depth penetration testing writeup covering SQLi, XSS, and broken authentication mechanics.</li>
+                <li><strong>SOC Lab & Log Analysis:</strong> Built custom SIEM dashboards using Splunk & Elastic Stack to monitor live attack vectors.</li>
             </ul>
         </section>
 
-        <section class="terminal-card">
-            <h2>> ls ./projects</h2>
+        <section class="card">
+            <h2>> cat certifications.log</h2>
             <ul>
-                <li><strong>Project 1:</strong> Network Scanner & Port Analyzer</li>
-                <li><strong>Project 2:</strong> CTF Writeups & Lab Notes</li>
-                <li><strong>Project 3:</strong> Automated Vulnerability Audit Scripts</li>
+                <li>CompTIA Security+ / CEH / eJPT (Customize with your certifications)</li>
+                <li>TryHackMe & Hack The Box Top Rank Contributor</li>
             </ul>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 samurai_mohit | Hosted on GitHub Pages</p>
-    </footer>
+        <section class="card">
+            <h2>> ./contact_me.sh</h2>
+            <p>Interested in collaborating or discussing security operations? Reach out!</p>
+            <p style="margin-top: 0.5rem;">
+                <strong>GitHub:</strong> <a href="https://github.com/MohitBagaria" target="_blank">github.com/MohitBagaria</a>
+            </p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Mohit Bagaria | Hosted on GitHub Pages</p>
+        </footer>
+    </div>
 
 </body>
 </html>
