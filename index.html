@@ -39,27 +39,55 @@
             padding: 2.5rem 1.5rem;
         }
 
-        /* Header / Hero */
+        /* Header / Hero with Profile Picture */
         header {
-            text-align: center;
             padding: 3.5rem 1.5rem 2.5rem;
             background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0) 100%);
             border-bottom: 1px solid var(--border-color);
         }
 
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .profile-pic-container {
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-accent);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+        }
+
+        .profile-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
         .profile-title {
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.025em;
             color: var(--text-main);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .profile-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 500;
             color: var(--primary-accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .profile-location {
@@ -69,18 +97,17 @@
 
         .cta-buttons {
             display: flex;
-            justify-content: center;
             gap: 1rem;
-            margin-top: 1.75rem;
+            margin-top: 1.25rem;
             flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.65rem 1.35rem;
+            padding: 0.55rem 1.15rem;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -104,6 +131,16 @@
 
         .btn-secondary:hover {
             background-color: #334155;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                text-align: center;
+                justify-content: center;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
         }
 
         /* Sections */
@@ -204,7 +241,7 @@
 
         footer {
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 2.5rem 1-rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 0.875rem;
@@ -214,15 +251,20 @@
 <body>
 
     <header>
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <h1 class="profile-title">Mohit Bagria</h1>
-            <p class="profile-subtitle">Lead Cybersecurity Engineer & AI Defence Leader</p>
-            <p class="profile-location">Bengaluru, India | Building Cyber Defence @ PropertyGuru Group</p>
-            
-            <div class="cta-buttons">
-                <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
-                <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Portfolio</a>
-                <a href="Mohit Bagria Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume (PDF)</a>
+        <div class="header-content">
+            <div class="profile-pic-container">
+                <img src="New Profile.png" alt="Mohit Bagria" class="profile-pic">
+            </div>
+            <div class="profile-text">
+                <h1 class="profile-title">Mohit Bagria</h1>
+                <p class="profile-subtitle">Lead Cybersecurity Engineer & AI Defence Leader</p>
+                <p class="profile-location">Bengaluru, India | Building Cyber Defence @ PropertyGuru Group</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
+                    <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Portfolio</a>
+                    <a href="Mohit Bagria Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume (PDF)</a>
+                </div>
             </div>
         </div>
     </header>
