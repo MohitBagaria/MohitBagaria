@@ -1,383 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Bagria | Lead Cybersecurity Engineer With AI Defence</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --surface-color: #1e293b;
-            --border-color: #334155;
-            --primary-accent: #38bdf8;
-            --primary-hover: #0284c7;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --gold-accent: #f59e0b;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohit Bagria — Lead Cyber Defence</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
+:root{
+  --void:#0A0E14;
+  --panel:#0F1420;
+  --panel-alt:#141B29;
+  --hairline:#232C3D;
+  --hairline-soft:#1A2233;
+  --text:#E7EAF0;
+  --muted:#7C8598;
+  --dim:#4B5568;
+  --teal:#2DD9A8;
+  --amber:#FFB454;
+  --red:#FF6B6B;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 0;
-        }
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--void);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem;
-        }
+::selection{background:var(--teal);color:var(--void);}
 
-        /* Header / Hero with Profile Picture */
-        header {
-            padding: 3.5rem 1.5rem 2.5rem;
-            background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0) 100%);
-            border-bottom: 1px solid var(--border-color);
-        }
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
 
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            max-width: 960px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            text-align: left;
-        }
+.grid-bg{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
 
-        .profile-pic-container {
-            flex-shrink: 0;
-        }
+.wrap{max-width:1100px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-accent);
-            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
-        }
+header.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,14,20,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hairline-soft);
+}
+.nav-inner{
+  max-width:1100px; margin:0 auto; padding:16px 28px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--mono); font-weight:600; font-size:14px; letter-spacing:0.02em;
+}
+.dot{
+  width:8px; height:8px; border-radius:50%; background:var(--teal);
+  box-shadow:0 0 0 3px rgba(45,217,168,0.15);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;}
+  50%{opacity:0.35;}
+}
+.navlinks{display:flex; gap:26px; font-family:var(--mono); font-size:12px; letter-spacing:0.04em;}
+.navlinks a{text-decoration:none; color:var(--muted); text-transform:uppercase; transition:color .15s;}
+.navlinks a:hover{color:var(--teal);}
+@media (max-width:640px){ .navlinks{display:none;} }
 
-        .profile-text {
-            flex: 1;
-            min-width: 280px;
-        }
+.hero{padding:64px 0 0;}
+.hero-top{
+  display:grid; grid-template-columns:1fr 220px; gap:44px; align-items:start;
+  margin-bottom:0;
+}
+.id-badge{
+  position:relative; border:1px solid var(--hairline); background:var(--panel);
+  padding:14px 14px 16px;
+}
+.id-badge::before, .id-badge::after,
+.id-badge .corner-br, .id-badge .corner-bl{
+  content:''; position:absolute; width:14px; height:14px; border:2px solid var(--teal);
+}
+.id-badge::before{top:-1px; left:-1px; border-right:none; border-bottom:none;}
+.id-badge::after{top:-1px; right:-1px; border-left:none; border-bottom:none;}
+.id-badge .corner-br{bottom:-1px; right:-1px; border-left:none; border-top:none;}
+.id-badge .corner-bl{bottom:-1px; left:-1px; border-right:none; border-top:none;}
+.id-badge img{
+  display:block; width:100%; aspect-ratio:1/1; object-fit:cover;
+  filter:grayscale(35%) contrast(1.05);
+}
+.id-badge .id-label{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:0.06em; color:var(--dim);
+  margin-top:10px; text-transform:uppercase;
+}
+.id-badge .id-label .live{color:var(--teal); display:flex; align-items:center; gap:5px;}
+.id-badge .id-label .live::before{
+  content:''; width:5px; height:5px; border-radius:50%; background:var(--teal);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@media (max-width:720px){
+  .hero-top{grid-template-columns:1fr; }
+  .id-badge{width:150px; margin-bottom:8px;}
+}
+.eyebrow{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.12em; color:var(--teal);
+  text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:'▸'; color:var(--dim);}
+h1{
+  font-family:var(--mono); font-weight:700;
+  font-size:clamp(38px, 6vw, 64px);
+  margin:0 0 6px; letter-spacing:-0.01em; line-height:1.02;
+}
+.title-role{
+  font-size:clamp(16px, 2.2vw, 20px); color:var(--muted); font-weight:500;
+  margin:0 0 22px; font-family:var(--sans);
+}
+.contact-row{
+  display:flex; flex-wrap:wrap; gap:18px; font-family:var(--mono); font-size:13px; color:var(--dim);
+  margin-bottom:38px;
+}
+.contact-row a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent; transition:border-color .15s, color .15s;}
+.contact-row a:hover{color:var(--teal); border-color:var(--teal);}
+.contact-row span{color:var(--dim);}
 
-        .profile-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-            color: var(--text-main);
-            margin-bottom: 0.3rem;
-        }
+.statgrid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--hairline); border:1px solid var(--hairline);
+  margin-top:38px;
+}
+.stat{
+  background:var(--panel); padding:22px 20px;
+}
+.stat .label{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--dim);
+  text-transform:uppercase; margin-bottom:10px;
+}
+.stat .value{
+  font-family:var(--mono); font-weight:700; font-size:clamp(20px,2.6vw,28px); color:var(--text);
+}
+.stat .value .arrow{color:var(--teal); font-size:0.7em; margin:0 4px;}
+.stat .value small{font-size:0.55em; color:var(--muted); font-weight:500;}
+@media (max-width:760px){ .statgrid{grid-template-columns:repeat(2,1fr);} }
 
-        .profile-subtitle {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--primary-accent);
-            margin-bottom: 0.4rem;
-        }
+.ticker-wrap{
+  border:1px solid var(--hairline); border-top:none;
+  background:var(--panel-alt);
+  overflow:hidden; position:relative; height:34px;
+}
+.ticker-wrap::before, .ticker-wrap::after{
+  content:''; position:absolute; top:0; bottom:0; width:60px; z-index:2; pointer-events:none;
+}
+.ticker-wrap::before{left:0; background:linear-gradient(90deg, var(--panel-alt), transparent);}
+.ticker-wrap::after{right:0; background:linear-gradient(270deg, var(--panel-alt), transparent);}
+.ticker{
+  display:flex; gap:48px; white-space:nowrap; position:absolute; top:0; height:100%; align-items:center;
+  font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  animation:scroll-left 34s linear infinite;
+  padding-left:100%;
+}
+.ticker span.ok{color:var(--teal);}
+.ticker span.tag{color:var(--dim);}
+@keyframes scroll-left{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-100%);}
+}
+@media (prefers-reduced-motion:reduce){
+  .ticker{animation:none; padding-left:0;}
+  .dot{animation:none;}
+}
 
-        .profile-location {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
+section{padding:88px 0;}
+.section-head{
+  display:flex; align-items:baseline; gap:14px; margin-bottom:40px;
+}
+.section-num{font-family:var(--mono); color:var(--dim); font-size:13px;}
+.section-title{
+  font-family:var(--mono); font-weight:700; font-size:clamp(22px,3vw,30px); margin:0;
+}
+.section-rule{flex:1; height:1px; background:var(--hairline);}
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.25rem;
-            flex-wrap: wrap;
-        }
+.summary-panel{
+  border:1px solid var(--hairline); background:var(--panel);
+  padding:32px; border-left:2px solid var(--teal);
+}
+.summary-panel p{margin:0; font-size:16px; color:#C9CEDA; max-width:74ch;}
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.55rem 1.15rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+.timeline{position:relative;}
+.tl-item{
+  position:relative; padding:0 0 0 34px; border-left:1px solid var(--hairline);
+  padding-bottom:52px;
+}
+.tl-item:last-child{padding-bottom:0; border-color:transparent;}
+.tl-item::before{
+  content:''; position:absolute; left:-5px; top:4px;
+  width:9px; height:9px; border-radius:50%; background:var(--void);
+  border:2px solid var(--teal);
+}
+.tl-head{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 16px; margin-bottom:6px;
+}
+.tl-role{font-family:var(--mono); font-weight:700; font-size:19px; color:var(--text);}
+.tl-period{font-family:var(--mono); font-size:12px; color:var(--teal); background:rgba(45,217,168,0.08); border:1px solid rgba(45,217,168,0.25); padding:3px 8px; border-radius:3px;}
+.tl-org{font-family:var(--sans); font-size:14.5px; color:var(--muted); margin-bottom:16px;}
+.tl-bullets{margin:0; padding:0; list-style:none;}
+.tl-bullets li{
+  position:relative; padding-left:20px; margin-bottom:11px; font-size:14.5px; color:#C9CEDA;
+}
+.tl-bullets li::before{content:'›'; position:absolute; left:0; color:var(--dim); font-family:var(--mono);}
 
-        .btn-primary {
-            background-color: var(--primary-accent);
-            color: #0f172a;
-        }
+.matrix{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hairline); border:1px solid var(--hairline);}
+.matrix-cell{background:var(--panel); padding:24px;}
+.matrix-cell h4{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--amber);
+  margin:0 0 14px;
+}
+.tag-list{display:flex; flex-wrap:wrap; gap:8px;}
+.tag{
+  font-family:var(--mono); font-size:12px; color:var(--muted); border:1px solid var(--hairline); padding:5px 10px; border-radius:3px;
+  transition:border-color .15s, color .15s;
+}
+.tag:hover{border-color:var(--teal); color:var(--teal);}
+@media (max-width:820px){ .matrix{grid-template-columns:1fr 1fr;} }
+@media (max-width:560px){ .matrix{grid-template-columns:1fr;} }
 
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            color: #ffffff;
-        }
+.cred-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:32px;}
+@media (max-width:800px){ .cred-grid{grid-template-columns:1fr;} }
+.cred-block h4{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--dim); margin:0 0 16px;
+}
+.chip-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px;}
+.chip{
+  font-family:var(--mono); font-size:12.5px; padding:7px 12px; border:1px solid var(--hairline); background:var(--panel);
+  color:#C9CEDA; border-radius:3px;
+}
+.edu-card{
+  border:1px solid var(--hairline); background:var(--panel); padding:20px 22px; margin-bottom:14px;
+}
+.edu-card .deg{font-family:var(--mono); font-weight:600; font-size:15px; color:var(--text);}
+.edu-card .school{font-size:13.5px; color:var(--muted); margin:4px 0 8px;}
+.edu-card .meta{font-family:var(--mono); font-size:11.5px; color:var(--teal);}
+.rec-list{list-style:none; margin:0; padding:0;}
+.rec-list li{
+  display:flex; gap:10px; font-size:14px; color:#C9CEDA; padding:10px 0; border-bottom:1px solid var(--hairline-soft);
+}
+.rec-list li:last-child{border-bottom:none;}
+.rec-list li::before{content:'★'; color:var(--amber); font-size:12px; margin-top:2px;}
 
-        .btn-secondary {
-            background-color: var(--surface-color);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-        }
+.contact-panel{
+  border:1px solid var(--hairline); background:linear-gradient(180deg, var(--panel-alt), var(--panel));
+  padding:56px 44px; text-align:center;
+}
+.contact-panel .status{
+  font-family:var(--mono); font-size:12px; color:var(--teal); letter-spacing:0.08em; margin-bottom:14px;
+}
+.contact-panel h3{
+  font-family:var(--mono); font-size:clamp(24px,3.4vw,34px); margin:0 0 16px;
+}
+.contact-panel p{color:var(--muted); max-width:52ch; margin:0 auto 30px; font-size:15px;}
+.cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.btn{
+  font-family:var(--mono); font-size:13px; text-decoration:none; padding:13px 24px; border-radius:3px;
+  border:1px solid var(--hairline); color:var(--text); transition:all .15s; letter-spacing:0.02em;
+}
+.btn.primary{background:var(--teal); color:var(--void); border-color:var(--teal); font-weight:600;}
+.btn.primary:hover{background:#3FF0BC;}
+.btn.ghost:hover{border-color:var(--teal); color:var(--teal);}
 
-        .btn-secondary:hover {
-            background-color: #334155;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                text-align: center;
-                justify-content: center;
-            }
-            .cta-buttons {
-                justify-content: center;
-            }
-        }
-
-        /* Sections */
-        .section-title {
-            font-size: 1.35rem;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 1.25rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.75rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .about-text {
-            color: #cbd5e1;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        /* Badges */
-        .badge-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .badge {
-            background-color: #0f172a;
-            border: 1px solid var(--border-color);
-            color: var(--primary-accent);
-            padding: 0.4rem 0.85rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .badge.gold {
-            border-color: var(--gold-accent);
-            color: var(--gold-accent);
-            background-color: rgba(245, 158, 11, 0.1);
-        }
-
-        /* Experience & Education List */
-        .experience-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-        }
-
-        .exp-item {
-            border-left: 3px solid var(--primary-accent);
-            padding-left: 1.25rem;
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 0.25rem;
-        }
-
-        .exp-role {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .exp-company {
-            color: var(--primary-accent);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .exp-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .exp-bullets {
-            margin-top: 0.75rem;
-            padding-left: 1.2rem;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-        .exp-bullets li {
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 1-rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-    </style>
+footer{padding:36px 0; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--dim);}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            <div class="profile-pic-container">
-                <img src="profile.png" alt="Mohit Bagria" class="profile-pic">
-            </div>
-            <div class="profile-text">
-                <h1 class="profile-title">Mohit Bagria</h1>
-                <p class="profile-subtitle">Lead Cybersecurity Engineer With AI Defence </p>
-                <p class="profile-location">Bengaluru, India | Building Cyber Defence @ PropertyGuru Group</p>
-                
-                <div class="cta-buttons">
-                    <a href="https://www.linkedin.com/in/mohit-bagria-bbba19125/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
-                    <a href="https://github.com/MohitBagaria" target="_blank" class="btn btn-secondary">GitHub Portfolio</a>
-                    <a href="Mohit Bagria Resume.pdf" target="_blank" class="btn btn-secondary">Download Resume (PDF)</a>
-                </div>
-            </div>
+<div class="grid-bg"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span> MOHIT BAGRIA // STATUS: OPERATIONAL</div>
+    <nav class="navlinks">
+      <a href="#overview">Overview</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="overview">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Incident Commander // Security Operations &amp; Engineering</div>
+        <h1>Mohit Bagria</h1>
+        <p class="title-role">Lead Cyber Defence — Security Operations &amp; Engineering Lead</p>
+        <div class="contact-row">
+          <span>Bengaluru, India · Open to Remote</span>
+          <a href="tel:+917820848280">+91 7820848280</a>
+          <a href="mailto:mohitsec96@gmail.com">mohitsec96@gmail.com</a>
+          <a href="https://linkedin.com/in/mohit-bagria-bbba19125" target="_blank" rel="noopener">linkedin.com/in/mohit-bagria</a>
         </div>
-    </header>
+      </div>
+      <div class="id-badge">
+        <span class="corner-br"></span><span class="corner-bl"></span>
+        <img src="profile.png" alt="Mohit Bagria">
+        <div class="id-label"><span>OPERATOR</span><span class="live">ACTIVE</span></div>
+      </div>
+    </div>
 
-    <main class="container">
-        
-        <!-- Executive Summary -->
-        <section class="card">
-            <h2 class="section-title">In-Short Journey</h2>
-            <p class="about-text">
-                Accomplished <strong>Lead Cybersecurity Engineer with 8+ years of enterprise experience</strong> Strategic Cyber Defense & Security Operations Leader with extensive 
-                experience managing high-performing 24/7 SOC, Incident Response, Threat Intelligence, and Digital Forensics teams. Proven track record acting as Incident 
-                Commander during critical security events, safeguarding operational continuity, and communicating complex technical risks to executive leadership, Legal, 
-                and Board members. Expert in governing multi-cloud security architecture (AWS/GCP), embedding proactive threat hunting methodologies, and aligning enterprise 
-                defense strategies with strict regulatory frameworks (GDPR, ISO 27001, SOC 2). 
-                Combines strong technical depth with a business-first mindset to optimize security tool stacks, reduce MTTD/MTTR by [X]%, and protect brand 
-                reputation against sophisticated cyber threats.
-            </p>
-        </section>
+    <div class="statgrid">
+      <div class="stat">
+        <div class="label">Security Maturity</div>
+        <div class="value">1.3<span class="arrow">→</span>4.6<small>/5</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">False Positives Cut</div>
+        <div class="value">63<small>% in 1 month</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Log Ingestion Reduced</div>
+        <div class="value">78<small>%</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Enterprise Experience</div>
+        <div class="value">8<small>+ years</small></div>
+      </div>
+    </div>
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span><span class="tag">[MATURITY]</span> 1.3 → 4.6/5 in 24mo <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[SOC]</span> false-positive volume −63% MoM <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[SIEM]</span> log ingestion optimized −78% <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[MTTR]</span> mean time to respond → 23min <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[GOVERNANCE]</span> SEC / PDPC / PDPA / CERT-In liaison <span class="ok">ACTIVE</span></span>
+        <span><span class="tag">[STACK]</span> EDR + XDR + SIEM deployed end-to-end <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[CLOUD]</span> CNAPP + WAF + Zero Trust rolled out <span class="ok">RESOLVED</span></span>
+        <span><span class="tag">[AWARD]</span> Spotlight Award — Q1 2026 <span class="ok">LOGGED</span></span>
+      </div>
+    </div>
+  </section>
 
-        <!-- Core Competencies -->
-        <section class="card">
-            <h2 class="section-title">Core Competencies & Key Achievements</h2>
-            <div class="badge-grid">
-                <span class="badge">8+ Years Enterprise Security</span>
-                <span class="badge">Threat Detection & Response (TDR)</span>
-                <span class="badge">SIEM & SOAR Architecture </span>
-                <span class="badge">Corporate Security </span>
-                <span class="badge">Data Privacy & DLP Operations </span>
-                <span class="badge">Multi-Cloud Security (AWS / GCP / Azure)</span>
-                <span class="badge">78% MTTR Reduction</span>
-                <span class="badge">84.34% Reduced False Positive Alerts</span>
-                <span class="badge">AI & LLM Triage Playbooks</span>
-                <span class="badge">Digital Forensics & Incident Response (DFIR)</span>
-                <span class="badge">External Attack Surface Detection</span>
-                <span class="badge">Security Trainer & Public Speaker </span>
-                <span class="badge gold">🏆 Academic Gold Medalist Specialized In Information Security </span>
-            </div>
-        </section>
+  <!-- SUMMARY -->
+  <section>
+    <div class="section-head"><span class="section-num">00</span><h2 class="section-title">Brief</h2><div class="section-rule"></div></div>
+    <div class="summary-panel">
+      <p>Cybersecurity leader with 8 years building and running enterprise security operations, incident response, cloud security, threat intelligence, corporate security, and governance programs across India and Southeast Asia. Took organizational security maturity from foundational to advanced (1.3 → 4.6/5), owning cross-functional and vendor relationships, budget, regulatory compliance, and executive stakeholder communication. Now seeking a Manager/Lead role owning security operations, engineering, and risk strategy for a growing organization.</p>
+    </div>
+  </section>
 
-        <!-- Professional Experience -->
-        <section class="card">
-            <h2 class="section-title">Professional Journey</h2>
-            <div class="experience-list">
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="section-head"><span class="section-num">01</span><h2 class="section-title">Incident Log — Career Timeline</h2><div class="section-rule"></div></div>
+    <div class="timeline">
 
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Lead Cyber Defence Engineer With AI </span>
-                        <span class="exp-date">2022 – Present</span>
-                    </div>
-                    <div class="exp-company"> PropertyGuru Group | Bengaluru, India</div>
-                    <ul class="exp-bullets">
-                        <li><strong>Strategic SOC Leadership & Operations:</strong> Spearheaded a 24/7 Security Operations Center (SOC) team, improving Threat Detection & Response (TDR) capabilities while reducing Mean Time to Acknwoledge (MTTA) by 63% and Mean Time to Resolution (MTTR) by 82% across enterprise environments.</li>
-                        <li><strong>Automated Investigation with Agentic AI:</strong> Automated Validation & Closure for BAU and False Positive Alerts.
-                         <li><strong>Incident Response & Digital Forensics:</strong> Directed end-to-end incident response protocols and forensic investigations for high-severity security incidents, establishing chain-of-custody compliance and mitigating breach impact with zero critical data loss. </li>
-                        <li><strong>Cloud Security Architecture & Posture:</strong> Unified cloud security defense across [AWS/GCP], deploying automated threat monitoring, IAM controls, and CSPM frameworks to secure cloud-native infrastructure against emerging attack vectors.</li>
-                        <li><strong>Threat Intelligence Operations:</strong> Developed and integrated an actionable Cyber Threat Intelligence (CTI) framework, translating threat landscapes into proactive hunting hypotheses and automated rule detections.</li>
-                        <li><strong>Legal, Regulatory & Risk Alignment:</strong> Partnered with legal, compliance, and executive stakeholders to align technical cyber defense operations with global privacy regulations ([GDPR/ISO 27001/SOC 2/HIPAA]), leading regulatory incident reporting and liability risk reduction.</li>
-                        <li><strong>Spearheaded Defence-in-Depth:</strong> Initiatives, aligning security controls with ISO 27001, NIST, and enterprise risk frameworks.</li>
-                    </ul>
-                </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Security Lead Engineer</span>
+          <span class="tl-period">JUN 2023 — PRESENT</span>
+        </div>
+        <div class="tl-org">PropertyGuru Group · Managing Cyber Defence across South East Asia &amp; India</div>
+        <ul class="tl-bullets">
+          <li>Lead a high-performing incident response team, directing end-to-end security operations across SEA and India with AI-driven detection and response.</li>
+          <li>Deployed EDR, XDR, and SIEM end-to-end with right-sized log ingestion, driving maturity from 1.3 to 4.6/5 in two years and closing SOC blind spots.</li>
+          <li>Led data security &amp; privacy initiative — data classification, DLP, CASB, SWG — to cut data exposure and exfiltration risk.</li>
+          <li>Reduced false-positive alert volume 63% in one month; cut log ingestion/optimization volume 78%.</li>
+          <li>Own regulatory incident reporting and legal liaison to SEC, PDPC, PDPA, CERT-In, CSA and other regulators.</li>
+          <li>Built the vulnerability management program spanning CI/CD security, code review, and secret scanning.</li>
+          <li>Implemented multi-cloud CNAPP, WAF, and Zero Trust controls; owns full tool lifecycle — POC, vendor evaluation, budgeting, onboarding.</li>
+        </ul>
+      </div>
 
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Senior Associate - Cybersecurity</span>
-                        <span class="exp-date">2021 – 2022</span>
-                    </div>
-                    <div class="exp-company"> Meesho | Bengaluru, India</div>
-                    <ul class="exp-bullets">
-                        <li>Managed Security Operations Center (SOC) monitoring and threat detection for large-scale global client portfolios.</li>
-                        <li>Engineered and fine-tuned SIEM correlation rules, vulnerability management programs, and cloud compliance metrics.</li>
-                        <li>Collaborated with DevOps teams to embed security auditing scripts into automated CI/CD pipelines.</li>
-                    </ul>
-                </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Senior Security Engineer</span>
+          <span class="tl-period">APR 2022 — MAY 2023</span>
+        </div>
+        <div class="tl-org">Meesho</div>
+        <ul class="tl-bullets">
+          <li>Configured end-to-end SIEM across AWS management events, EDR, and Google Workspace — reducing alert noise 53% and cutting MTTR to 23 minutes.</li>
+          <li>Optimized log volume across all sources to hold SIEM cost and noise within budget.</li>
+          <li>Onboarded EASM to detect and mitigate external threats, misconfigurations, scams, and data leakage.</li>
+          <li>Set up Entra ID and Google Workspace posture management with automated identity/SaaS threat response.</li>
+          <li>Onboarded infrastructure security tooling for misconfiguration, abuse-report, and threat-intel detection.</li>
+        </ul>
+      </div>
 
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Security Analyst</span>
-                        <span class="exp-date">2019 – 2021</span>
-                    </div>
-                    <div class="exp-company">Incture Technologies | Bengaluru, India</div>
-                    <ul class="exp-bullets">
-                        <li>Executed web application penetration testing, vulnerability assessments (OWASP Top 10), and patch verification.</li>
-                        <li>Automated daily security audit reports and network reconnaissance tasks using custom Python and Bash scripts.</li>
-                    </ul>
-                </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Cyber Security Engineer — L2, L1, Intern</span>
+          <span class="tl-period">JAN 2019 — MAR 2022</span>
+        </div>
+        <div class="tl-org">Fair Isaac Software Private Limited (FICO)</div>
+        <ul class="tl-bullets">
+          <li>Progressed Intern → L2 over 3 years, taking ownership across email, endpoint, and network security domains.</li>
+          <li>Administered email security (spam/phishing filtering, DMARC/DKIM/SPF, sandboxing), cutting phishing reaching end users.</li>
+          <li>Managed enterprise EDR/AV tooling, tuning detection policy and automated containment workflows.</li>
+          <li>Operated and tuned SIEM — built correlation rules and use cases, triaged daily alerts, escalated via response playbooks.</li>
+          <li>Administered DLP/CASB and web proxy policy to prevent unauthorized exfiltration; monitored EASM for exposure.</li>
+          <li>Investigated policy violations with HR/Legal and supported compliance audit evidence.</li>
+        </ul>
+      </div>
 
-            </div>
-        </section>
+    </div>
+  </section>
 
-        <!-- Education & Leadership -->
-        <section class="card">
-            <h2 class="section-title">Education & Academic Distinction</h2>
-            <div class="experience-list">
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Bachelor of Technology (B.Tech) - Computer Science</span>
-                        <span class="exp-date">2016 – 2019</span>
-                    </div>
-                    <div class="exp-company">Academic Gold Medalist</div>
-                    <ul class="exp-bullets">
-                        <li>Awarded <strong>First Rank (Gold Medal)</strong> across all engineering departments for top overall academic performance.</li>
-                        <li>Invited speaker at industry security forums and university panels on AI in Cybersecurity and modern Threat Detection.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="section-head"><span class="section-num">02</span><h2 class="section-title">Capability Matrix</h2><div class="section-rule"></div></div>
+    <div class="matrix">
+      <div class="matrix-cell">
+        <h4>Operations &amp; Response</h4>
+        <div class="tag-list">
+          <span class="tag">Security Ops Leadership</span>
+          <span class="tag">Incident Response</span>
+          <span class="tag">Crisis Management</span>
+          <span class="tag">AI-Driven Response</span>
+        </div>
+      </div>
+      <div class="matrix-cell">
+        <h4>Cloud &amp; Architecture</h4>
+        <div class="tag-list">
+          <span class="tag">Multi-Cloud (CNAPP)</span>
+          <span class="tag">WAF</span>
+          <span class="tag">Zero Trust</span>
+          <span class="tag">DevSecOps</span>
+        </div>
+      </div>
+      <div class="matrix-cell">
+        <h4>Risk &amp; Governance</h4>
+        <div class="tag-list">
+          <span class="tag">ISO 27001</span>
+          <span class="tag">SOC2</span>
+          <span class="tag">GDPR</span>
+          <span class="tag">PDPA</span>
+          <span class="tag">CERT-In</span>
+          <span class="tag">TPRM</span>
+        </div>
+      </div>
+      <div class="matrix-cell">
+        <h4>Intelligence &amp; Vuln Mgmt</h4>
+        <div class="tag-list">
+          <span class="tag">Threat Intelligence</span>
+          <span class="tag">Vulnerability Mgmt</span>
+          <span class="tag">Digital Security</span>
+          <span class="tag">Data Privacy</span>
+        </div>
+      </div>
+      <div class="matrix-cell">
+        <h4>People &amp; Programs</h4>
+        <div class="tag-list">
+          <span class="tag">Vendor Mgmt</span>
+          <span class="tag">Budget Planning</span>
+          <span class="tag">Team Leadership</span>
+          <span class="tag">Stakeholder Comms</span>
+        </div>
+      </div>
+      <div class="matrix-cell">
+        <h4>SIEM / SOAR / EDR Tooling</h4>
+        <div class="tag-list">
+          <span class="tag">SentinelOne XDR</span>
+          <span class="tag">CrowdStrike</span>
+          <span class="tag">MS Defender</span>
+          <span class="tag">Datadog</span>
+          <span class="tag">Splunk</span>
+          <span class="tag">Cortex XSOAR</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </main>
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="section-head"><span class="section-num">03</span><h2 class="section-title">Credentials</h2><div class="section-rule"></div></div>
+    <div class="cred-grid">
+      <div class="cred-block">
+        <h4>Certifications</h4>
+        <div class="chip-row">
+          <span class="chip">SentinelOne AI Security</span>
+          <span class="chip">SentinelOne Breach Readiness</span>
+          <span class="chip">AWS Solutions Architect</span>
+          <span class="chip">EC-Council CEH</span>
+          <span class="chip">EC-Council ECSA</span>
+          <span class="chip">Splunk Advanced</span>
+          <span class="chip">Datadog Advanced</span>
+          <span class="chip">Malware Analysis</span>
+        </div>
+        <h4>Recognitions</h4>
+        <ul class="rec-list">
+          <li>Spotlight Award (Q1 2026) for excellence in cyber defense operations</li>
+          <li>Guru Stars &amp; Spot Awards for innovation and automation initiatives</li>
+          <li>Invited speaker at cybersecurity seminars and academic institutions</li>
+        </ul>
+      </div>
+      <div class="cred-block">
+        <h4>Education</h4>
+        <div class="edu-card">
+          <div class="deg">Master's in Information Security</div>
+          <div class="school">Jain University, Bengaluru · 2016 – 2019</div>
+          <div class="meta">University Gold Medalist · CGPA 8.7/10</div>
+        </div>
+        <div class="edu-card">
+          <div class="deg">Bachelor of Computer Application</div>
+          <div class="school">Bikaner University, Rajasthan · 2013 – 2016</div>
+          <div class="meta">78%</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 Mohit Bagria. All rights reserved. | Hosted on GitHub Pages</p>
-    </footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-panel">
+      <div class="status">● CHANNEL OPEN</div>
+      <h3>Let's talk security leadership.</h3>
+      <p>Open to Manager / Lead roles owning security operations, engineering, and risk strategy — remote or Bengaluru.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:mohitsec96@gmail.com">Email Mohit</a>
+        <a class="btn ghost" href="https://linkedin.com/in/mohit-bagria-bbba19125" target="_blank" rel="noopener">View LinkedIn</a>
+        <a class="btn ghost" href="tel:+917820848280">Call +91 7820848280</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Mohit Bagria · Bengaluru, India · Compiled from live career telemetry</footer>
 
 </body>
 </html>
